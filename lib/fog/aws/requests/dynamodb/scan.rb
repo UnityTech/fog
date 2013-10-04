@@ -18,6 +18,16 @@ module Fog
         #       * 'ComparisonOperator'<~String>: comparison operator to use with attribute value list, in %w{BETWEEN BEGINS_WITH EQ LE LT GE GT}
         #   * 'ScanIndexForward'<~Boolean>: Whether to scan from start or end of index, defaults to start
         #   * 'ExclusiveStartKey'<~Hash>: Key to start listing from, can be taken from LastEvaluatedKey in response
+        #   * 'ReturnConsumedCapacity'<~String>:
+        #     * TOTAL: Reports the consumed capacity units.
+        #     * NONE: Do not report consumption (default).
+        #   * 'Select'<~String>: The attributes to be returned in the result.
+        #     * ALL_ATTRIBUTES
+        #     * ALL_PROJECTED_ATTRIBUTES
+        #     * SPECIFIC_ATTRIBUTES
+        #     * COUNT
+        #   * 'Segment'<~Integer>: See API docs.
+        #   * 'TotalSegments'<~Integer>: See API docs.
         #
         # ==== Returns
         # * response<~Excon::Response>:
@@ -34,7 +44,7 @@ module Fog
 
           request(
             :body     => Fog::JSON.encode(body),
-            :headers  => {'x-amz-target' => 'DynamoDB_20111205.Scan'},
+            :headers  => {'x-amz-target' => 'DynamoDB_20120810.Scan'},
             :idempotent => true
           )
         end

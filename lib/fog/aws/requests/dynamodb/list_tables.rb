@@ -18,7 +18,7 @@ module Fog
         def list_tables(options = {})
           request(
             :body       => Fog::JSON.encode(options),
-            :headers    => {'x-amz-target' => 'DynamoDB_20111205.ListTables'},
+            :headers    => {'x-amz-target' => 'DynamoDB_20120810.ListTables'},
             :idempotent => true
           )
         end
